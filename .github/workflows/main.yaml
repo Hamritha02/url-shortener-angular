@@ -1,1 +1,15 @@
-
+name: angular
+on: 
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: build
+      run: npm ci
+     
+    - name: Build
+      run: npm run build
+      
+    - name: test
+      run: npm test
