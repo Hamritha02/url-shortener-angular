@@ -19,6 +19,19 @@ jobs:
      
     - name: Build
       run: npm run build
+    - name: clean
+      run: npm cache clean
       
     - name: test
-      run: npm run test-headless
+      run: npm run test-headless > testoutput.yaml
+
+      
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v2
+      with:
+          name: deploy_dist_and_test
+          path: |
+              dist
+              package.json
+              testoutput.yaml
+              
