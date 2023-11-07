@@ -16,7 +16,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
-        
+    - name: karma plugin install
+      run: npm install karma-junit-reporter --save-dev
+      
     - name: Installation
       run: npm install
     
