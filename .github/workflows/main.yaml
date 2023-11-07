@@ -5,8 +5,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: build
-      run: npm ci
+    
+    - name: Use Node.js 
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+        
+    - name: Installation
+      run: npm install
      
     - name: Build
       run: npm run build
