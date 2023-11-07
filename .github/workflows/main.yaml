@@ -24,8 +24,20 @@ jobs:
       run: npm run build
       
     - name: test
-      run: npm run test-headless > testoutput.yaml
+      run: npm run test-headless
       continue-on-error: true
+      
+    - name: list
+      run: |
+        echo "present wd"
+        ls
+        pwd
+        echo " two steps backpresent wd"
+        cd ..
+        ls
+        pwd
+        find -name html
+
       
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
@@ -34,5 +46,5 @@ jobs:
           path: |
               dist
               package.json
-              testoutput.yaml
+
               
