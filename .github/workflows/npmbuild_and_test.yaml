@@ -1,8 +1,13 @@
 name: angular
 on:
-  push:
-  workflow_dispatch:
   workflow_call:
+      inputs:
+        config-path:
+          required: true
+          type: string
+      secrets:
+        envPAT:
+          required: true
 jobs:
   Build_and_Test:
     runs-on: ubuntu-latest
