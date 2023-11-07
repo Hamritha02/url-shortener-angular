@@ -9,26 +9,31 @@ jobs:
       secrets: inherit
       
   security_scan:
+      needs: build_and_test
       name: GGshield
       uses: ./.github/workflows/ggshield.yml
       secrets: inherit
       
   Snyk:
+      needs: security_scan
       name: Snyk
       uses: ./.github/workflows/snyk.yml
       secrets: inherit
   
   SBOM:
+      needs: Snyk
       name: SBOM
       uses: ./.github/workflows/sbom.yml
       secrets: inherit
  
   Docker_build_push:
+      needs: SBOM
       name: docker
       uses: ./.github/workflows/docker.yml
       secrets: inherit
   
   # Deployment:
+    #    needs: Docker_build_push
   #     name: deployment
   #     uses: ./.github/workflows/deploy.yml
   #     secrets: inherit
