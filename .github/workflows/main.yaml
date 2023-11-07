@@ -41,7 +41,7 @@ jobs:
         find -name coverage*
         echo "html"
         find -name htm*
-
+        ls ./url-shortener-angular/coverage
       
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
