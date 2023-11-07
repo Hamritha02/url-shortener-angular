@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  Build_and_test:
+  Build_and_Test:
     runs-on: ubuntu-latest
     steps:
     
