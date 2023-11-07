@@ -16,7 +16,7 @@ jobs:
       
       
   Snyk:
-      needs: security_scan
+      needs: build_and_test
       name: Snyk
       uses: ./.github/workflows/snyk.yml
       secrets: inherit
