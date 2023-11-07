@@ -1,42 +1,34 @@
 name: angular
 on:
-  push:
+  # push:
   workflow_dispatch:
 jobs:
-  Build_and_Test:
-    runs-on: ubuntu-latest
-    steps:
-    
-    - name: Checkout
-      uses: actions/checkout@v3
+  build_and_test:
+      name: build
+      uses: ./.github/workflows/build.yml
+      secrets: inherit
       
-    - name: Use Node.js 
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-        
-    - name: Installation
-      run: npm install
-    
-    - name: clean
-      run: npm cache clean --force
+  security_scan:
+      name: GGshield
+      uses: ./.github/workflows/ggshield.yml
+      secrets: inherit
       
-    - name: Build
-      run: npm run build
-      
-    - name: test
-      run: npm run test-headless
-      continue-on-error: true
-      
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
-      with:
-          name: deploy_dist_and_test
-          path: |
-              dist
-              package.json
-              coverage
-    
-              
-              
-              
+  Snyk:
+      name: Snyk
+      uses: ./.github/workflows/snyk.yml
+      secrets: inherit
+  
+  SBOM:
+      name: SBOM
+      uses: ./.github/workflows/sbom.yml
+      secrets: inherit
+ 
+  Docker_build_push:
+      name: docker
+      uses: ./.github/workflows/docker.yml
+      secrets: inherit
+  
+  Deployment:
+      name: deployment
+      uses: ./.github/workflows/deploy.yml
+      secrets: inherit
