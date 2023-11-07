@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
 jobs:
   security_scan:
-      needs: build_and_test
       name: GGshield
       uses: ./.github/workflows/ggshield.yml
       secrets: inherit
   
   build_and_test:
+      needs: security_scan
       name: build
       uses: ./.github/workflows/npmbuild_and_test.yaml
       secrets: inherit
