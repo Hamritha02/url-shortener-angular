@@ -1,0 +1,38 @@
+name: angular
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  Build_and_Test:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Use Node.js 
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+        
+    - name: Installation
+      run: npm install
+    
+    - name: clean
+      run: npm cache clean --force
+      
+    - name: Build
+      run: npm run build
+      
+    - name: test
+      run: npm run test-headless
+      continue-on-error: true
+      
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v2
+      with:
+          name: deploy_dist_and_test
+          path: |
+              dist
+              package.json
+              coverage
