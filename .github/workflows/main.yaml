@@ -5,7 +5,7 @@ on:
 jobs:
   build_and_test:
       name: build
-      uses: ./.github/workflows/build.yml
+      uses: ./.github/workflows/npmbuild_and_test.yaml
       secrets: inherit
       
   security_scan:
