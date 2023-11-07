@@ -3,16 +3,17 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  build_and_test:
-      name: build
-      uses: ./.github/workflows/npmbuild_and_test.yaml
-      secrets: inherit
-      
   security_scan:
       needs: build_and_test
       name: GGshield
       uses: ./.github/workflows/ggshield.yml
       secrets: inherit
+  
+  build_and_test:
+      name: build
+      uses: ./.github/workflows/npmbuild_and_test.yaml
+      secrets: inherit
+      
       
   Snyk:
       needs: security_scan
