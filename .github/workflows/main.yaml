@@ -37,7 +37,10 @@ jobs:
         cd ..
         ls
         pwd
-        find -name html
+        echo "coverage"
+        find -name coverage*
+        echo "html"
+        find -name htm*
 
       
     - name: Upload artifact for deployment job
