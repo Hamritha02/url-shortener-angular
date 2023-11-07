@@ -3,7 +3,7 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  build:
+  Build_and_test:
     runs-on: ubuntu-latest
     steps:
     
@@ -28,21 +28,6 @@ jobs:
       run: npm run test-headless
       continue-on-error: true
       
-    - name: list
-      run: |
-        echo "present wd"
-        ls
-        pwd
-        echo " two steps backpresent wd"
-        cd ..
-        ls
-        pwd
-        echo "coverage"
-        find -name coverage*
-        echo "html"
-        find -name htm*
-        ls ./url-shortener-angular/coverage
-      
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
       with:
@@ -51,6 +36,7 @@ jobs:
               dist
               package.json
               coverage
+    
               
               
               
