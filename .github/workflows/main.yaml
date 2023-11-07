@@ -1,4 +1,4 @@
-name: angular
+name: MAIN
 on:
   push:
   workflow_dispatch:
