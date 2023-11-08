@@ -1,4 +1,4 @@
-name: angular
+name: GGshield
 on:
   workflow_call:
 jobs:
