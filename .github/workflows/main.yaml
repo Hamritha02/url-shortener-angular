@@ -3,8 +3,7 @@ on:
   pull_request:
     types:
       - closed
-    branches:
-      - dev
+    
   workflow_dispatch:
 
 jobs:
