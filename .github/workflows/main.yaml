@@ -1,6 +1,10 @@
 name: MAIN
 on:
-  push:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - dev
   workflow_dispatch:
 jobs:
   security_scan:
