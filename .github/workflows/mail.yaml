@@ -1,6 +1,5 @@
 name: mail
 on:
- 
   workflow_dispatch:
 jobs:
  Mail:
