@@ -5,8 +5,8 @@ on:
       - closed
     branches:
       - dev
-
   workflow_dispatch:
+  
 jobs:
   security_scan:
       name: GGshield
