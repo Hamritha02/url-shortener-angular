@@ -1,6 +1,9 @@
 name: angular deployment
 on:
   workflow_call:
+  pull_request:
+   types:
+      closed
   
 jobs:
   build_and_test:
