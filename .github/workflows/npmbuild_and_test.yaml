@@ -17,7 +17,9 @@ jobs:
       with:
         node-version: 14.x
     - name: karma plugin install
-      run: npm install karma-junit-reporter --save-dev
+      run: |
+        npm update caniuse-lite browserslist
+        npm install karma-junit-reporter --save-dev
       
     - name: Installation
       run: npm install
