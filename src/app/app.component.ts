@@ -11,6 +11,7 @@ export class AppComponent {
   shortenUrl: string;
 
   constructor(private urlService: UrlService) { }
+  
 
   add(url: string): void {
     url = url.trim();
@@ -19,4 +20,5 @@ export class AppComponent {
 
     this.urlService.save(url).subscribe(res => this.shortenUrl = window.location.href + res.id);
   }
+  
 }
