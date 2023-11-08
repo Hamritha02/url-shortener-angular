@@ -4,7 +4,7 @@ on:
     types:
       - closed
     branches:
-      - 
+      - G1Kproject-patch-1
   workflow_dispatch:
 jobs:
   security_scan:
