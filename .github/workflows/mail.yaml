@@ -1,52 +1,9 @@
-name: MAIN
+name: mail
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - dev
+  push:
   workflow_dispatch:
-
 jobs:
-  security_scan:
-      if: github.event.pull_request.merged == true && github.head_ref == 'dev'
-      name: GGshield
-      uses: ./.github/workflows/ggshield.yml
-      secrets: inherit
-  
-  build_and_test:
-      needs: security_scan
-      name: build
-      uses: ./.github/workflows/npmbuild_and_test.yaml
-      secrets: inherit
-      
-      
-  Snyk:
-      needs: build_and_test
-      name: Snyk
-      uses: ./.github/workflows/snyk.yml
-      secrets: inherit
-  
-  SBOM:
-      needs: Snyk
-      name: SBOM
-      uses: ./.github/workflows/sbom.yml
-      secrets: inherit
- 
-  Docker_build_push:
-      needs: SBOM
-      name: docker
-      uses: ./.github/workflows/docker.yml
-      secrets: inherit
-  
-  Deployment:
-      needs: Docker_build_push
-      name: deployment
-      uses: ./.github/workflows/deploy.yml
-      secrets: inherit
-      
-  Mail:
-    needs: Deployment
+ Mail:
     runs-on: ubuntu-latest
     steps:
     - name: Send mail
