@@ -1,4 +1,4 @@
-name: nebular
+name: angular
 on:
   workflow_call:
   pull_request:
