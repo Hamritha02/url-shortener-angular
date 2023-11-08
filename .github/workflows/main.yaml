@@ -3,9 +3,13 @@ on:
   #push:
   pull_request:
     types:
-      - closed
+      - opened
+      - synchronize
+      - labeled
+    paths:
+      - '**/*'  
     branches:
-       - master
+      - master 
   workflow_dispatch: 
 
 jobs:
