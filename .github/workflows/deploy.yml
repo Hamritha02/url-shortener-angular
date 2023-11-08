@@ -1,4 +1,4 @@
-name: nebular
+name: angular deployment
 on:
   workflow_call:
   
