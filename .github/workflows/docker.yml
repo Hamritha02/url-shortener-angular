@@ -4,11 +4,8 @@ on:
   # push:
   pull_request:
    types:
-      closed
+     - closed
   workflow_dispatch:
-  pull_request:
-   types:
-      closed
 jobs:
     docker_build_push:
           runs-on: ubuntu-latest
