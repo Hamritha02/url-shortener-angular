@@ -1,9 +1,6 @@
-name: angular
+name: GGshield
 on:
   workflow_call:
-  pull_request:
-    types:
-      - closed
 jobs:
   security_scan:
       runs-on: ubuntu-latest
