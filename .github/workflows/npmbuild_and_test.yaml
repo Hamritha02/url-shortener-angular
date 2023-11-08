@@ -1,6 +1,9 @@
 name: angular
 on:
   workflow_call:
+  pull_request:
+   types:
+      closed
 jobs:
   Build_and_Test:
     runs-on: ubuntu-latest
