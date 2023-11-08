@@ -1,9 +1,11 @@
 name: MAIN
 on:
+  push:
   pull_request:
     types:
       - closed
-    
+    branches:
+       - master
   workflow_dispatch:
 
 jobs:
