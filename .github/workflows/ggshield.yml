@@ -2,8 +2,8 @@ name: nebular
 on:
   workflow_call:
   pull_request:
-   types:
-      closed
+    types:
+      - closed
 jobs:
   security_scan:
       runs-on: ubuntu-latest
