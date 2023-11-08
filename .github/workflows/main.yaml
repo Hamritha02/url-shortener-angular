@@ -1,6 +1,6 @@
 name: MAIN
 on:
-  push:
+  #push:
   pull_request:
     types:
       - closed
